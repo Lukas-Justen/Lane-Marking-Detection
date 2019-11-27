@@ -652,3 +652,8 @@ for line in final_lane_markings:
 output = pd.DataFrame(output_rows, columns=["Start_Latitude", "Start_Longitude", "Start_Z","End_Latitude", "End_Longitude", "End_Z"])
 output.to_csv("./data/output.csv", header=True, index=False)
 ```
+
+# 4. Future Work
+
+##### Idea
+As already outlined, the approach of locating the start and end point of a lane marking cluster by picking the two points that are furthest away from each other is not suffiicient. For instance, this approach cannot detect lanes that have a curvature. Thus, it would make more sense to use some kind of linear or polynomial regression algorithm to detect the flow of the lane. My picking a second or third degree polynomial this should give our algorithm enough freedom to pick straight lane markings but also those that have a curvature. For example, if a lane ends at the end of a highway ramp you can usually see a curved lane.
